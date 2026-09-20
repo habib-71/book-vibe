@@ -49,7 +49,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="flex gap-2 items-center">
-                    <Image src={Logo}></Image>
+                    <Image src={Logo} alt="Logo"></Image>
                     <h2 className="text-xl font-bold">Book Vive</h2>
                 </div>
             </div>
@@ -77,7 +77,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-2">
-                <a className="btn btn-success">Sign in</a>
+                <a className="btn text-white font-bold bg-[#23BE0A] rounded-box">Sign in</a>
                 <a className="btn btn-error">Sign up</a>
             </div>
         </div>
