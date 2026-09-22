@@ -1,9 +1,7 @@
-
-
 import BookCard from "@/componenets/shared/BookCard";
 import { IBook } from "@/types/books.types";
 
-const getBooks = async () => {
+const getBooks = async (): Promise<IBook[]> => {
     const res = await fetch("http://localhost:3000/booksData.json");
 
     return res.json();
@@ -21,7 +19,7 @@ const Books = async () => {
                 </p>
 
                 <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-                    Popular Books
+                    Explore All Books
                 </h2>
 
                 <p className="mx-auto mt-3 max-w-2xl text-gray-500">
@@ -32,8 +30,8 @@ const Books = async () => {
 
             {/* Books Grid */}
             <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
-                {booksData.slice(0, 6).map((book: IBook) => (
-                    <BookCard book={book} key={book.bookId} ></BookCard>
+                {booksData.map((book) => (
+                    <BookCard book={book} key={book.bookId} />
                 ))}
             </div>
         </section>

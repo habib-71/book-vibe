@@ -1,7 +1,8 @@
 
 import Image from "next/image";
+import Link from "next/link";
 
-const BookCard = ({book}) => {
+const BookCard = ({ book }) => {
     return (
         <div
             key={book.bookId}
@@ -17,7 +18,7 @@ const BookCard = ({book}) => {
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"></div>
 
                 {/* Category */}
                 <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-[#23BE0A] shadow-md backdrop-blur-sm">
@@ -79,12 +80,14 @@ const BookCard = ({book}) => {
                 </div>
 
                 {/* Button */}
-                <button className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#23BE0A] py-3 font-semibold text-white transition-all duration-300 hover:bg-[#1da308] hover:shadow-lg hover:shadow-[#23BE0A]/20">
-                    View Details
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                        →
-                    </span>
-                </button>
+                <Link href={`/books/${book.bookId}`}>
+                    <button className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#23BE0A] py-3 font-semibold text-white transition-all duration-300 hover:bg-[#1da308] hover:shadow-lg hover:shadow-[#23BE0A]/20">
+                        View Details
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">
+                            →
+                        </span>
+                    </button>
+                </Link>
             </div>
         </div>
     );
